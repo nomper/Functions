@@ -1,7 +1,7 @@
 function MatrixFigure(figurenumbers, clearflag)
-%MATRIXFIGURE Figure‚ğ®—ñ‚·‚éB
-%   figurenumbers‚É”š‚Ì”z—ñ‚ğ“ü‚ê‚éB
-%   clearflag = true‚Åfigure‚ğ‰Šú‰»B
+%MATRIXFIGURE Figureã‚’æ•´åˆ—ã™ã‚‹ã€‚
+%   figurenumbersã«æ•°å­—ã®é…åˆ—ã‚’å…¥ã‚Œã‚‹ã€‚
+%   clearflag = trueã§figureã‚’åˆæœŸåŒ–ã€‚
 if ~exist('clearflag', 'var')
     clearflag = false; 
 end

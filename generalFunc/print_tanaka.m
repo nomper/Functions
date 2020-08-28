@@ -1,7 +1,7 @@
 function print_tanaka(figurehandle, filename)
-%print_tanaka •’ig‚¢‚ÌˆêŠ‡o—Í
-%   1‚Éfigure handle, 2‚Éƒtƒ@ƒCƒ‹ƒl[ƒ€‚Ì“ª, 3‚ÉƒJƒbƒg‚Ì—L–³
-%   png pdf(ƒCƒ‰ƒŒ) fig‚ğƒRƒs[Apng‚Í’[‚ğØ‚è—‚Æ‚·B
+%print_tanaka æ™®æ®µä½¿ã„ã®ä¸€æ‹¬å‡ºåŠ›
+%   1ã«figure handle, 2ã«ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ãƒ ã®é ­, 3ã«ã‚«ãƒƒãƒˆã®æœ‰ç„¡
+%   png pdf(ã‚¤ãƒ©ãƒ¬) figã‚’ã‚³ãƒ”ãƒ¼ã€pngã¯ç«¯ã‚’åˆ‡ã‚Šè½ã¨ã™ã€‚
 print(figurehandle, strcat(filename,'.png'), "-dpng", "-r250");
 print(figurehandle, strcat(filename,'.pdf'), "-dpdf", "-painters");
 savefig(figurehandle, strcat(filename, '.fig'), 'compact');
