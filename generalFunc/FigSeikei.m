@@ -8,8 +8,11 @@ f.Position(4) = 480;
 if(f.Position(2)+480 > 1000)
     f.Position(2) = 1080 - 580;
 end
-% a.FontName = 'Arial';
-a.FontName = 'Helvetica';
+if(sum(contains(listfonts,"Helvetica"))==0)
+    a.FontName = 'Arial';
+else
+    a.FontName = 'Helvetica';
+end
 a.FontSize = 12;
 try
     a.XColor = [0, 0, 0];
@@ -35,8 +38,8 @@ try
 catch
 end
 try
-    a.ThetaColor = [0, 0, 0]
-    a.ThetaLabel.Color = [0, 0, 0]
+    a.ThetaColor = [0, 0, 0];
+    a.ThetaLabel.Color = [0, 0, 0];
 catch
 end
 
