@@ -4,9 +4,9 @@ function print_tanaka(figurehandle, filename, bgs)
 %   png pdf(イラレ) figをコピー、
 if exist("bgs","var")
     if(bgs)
-        parfeval(@print,figurehandle, strcat(filename,'.png'), "-dpng", "-r250");
-        parfeval(@print,figurehandle, strcat(filename,'.pdf'), "-dpdf", "-painters");
-        parfeval(@savefig,figurehandle, strcat(filename, '.fig'), 'compact');
+        parfeval(@print, 0, figurehandle, strcat(filename,'.png'), "-dpng", "-r250");
+        parfeval(@print, 0, figurehandle, strcat(filename,'.pdf'), "-dpdf", "-painters");
+        parfeval(@savefig, 0, figurehandle, strcat(filename, '.fig'), 'compact');
         
     end
 else
