@@ -1,6 +1,10 @@
 function [x, y] = loadRamanASCII(fullpath)
-if(~exist(fullpath,'file'))
-    return
+if(~exist("fullpath",'var'))
+    warning("1st arg. is fullpath of file.")
+    return;
+elseif(~exist(fullpath,'file'))
+    warning("file is not found")
+    return;
 end
 A = readmatrix(fullpath);
 [xx, yy] = size(A);
