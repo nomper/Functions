@@ -1,3 +1,4 @@
+
 function f = MatrixFigure(figurenumbers, clearflag)
 %MATRIXFIGURE Figureを整列する。
 %   figurenumbersに数字の配列を入れる。
@@ -13,7 +14,8 @@ for fn = 1:length(figurenumbers)
    x = ceil(fn/2) - 1;
    y = mod(fn, 2);
    
-   f(fn).Position(1) = -1920 + 640 * x;
+%    f(fn).Position(1) = -1920 + 640 * x;
+   f(fn).Position(1) = 640 * x;
    f(fn).Position(2) = 520 * y;
 end
 end
