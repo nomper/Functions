@@ -14,10 +14,11 @@ elseif(~exist("M","var"))
 end
 
 try
-    if(~isempty(m))
+    if(~isempty([m,M]))
+        ax.CLim = [m, M];
+    elseif(~isempty(m))
         ax.CLim(1) = m;
-    end
-    if(~isempty(M))
+    elseif(~isempty(M))
         ax.CLim(2) = M;
     end
     c = ax.CLim;
