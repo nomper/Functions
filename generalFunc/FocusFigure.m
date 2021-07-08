@@ -2,9 +2,12 @@ function fr = FocusFigure(f)
 flag = false;
 
 if(length(f) == 1 )
-    if(ishandle(f))
+    if(isnumeric(f))
         flag = true;
-    elseif(isnumeric(f))
+    elseif(ishandle(f))
+        if(~isvalid(f))
+            figure();
+        end
         flag = true;
     end
 end
