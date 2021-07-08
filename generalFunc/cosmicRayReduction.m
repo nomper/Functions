@@ -3,9 +3,9 @@ if(nargin < 1)
     return;
 elseif(nargin < 2)
     th = 1.5;
-    type = 'mean';
+    type = "mean";
 elseif(nargin < 3)
-    type = 'mean';
+    type = "mean";
 end
 type = string(type);
 range = abs(spe-mean(spe)) < th*std(spe);
@@ -15,10 +15,11 @@ spe2 = spe;
 if (s1 == s2)
     
 else
+    nrange = ~range;
     if(type == "mean")
-        spe2(~range) = mean(spe2);
+        spe2(nrange) = mean(spe2(:));
     elseif(type == "nan")
-        spe2(~range) = nan;
+        spe2(nrange) = nan;
     end
 end
 end
