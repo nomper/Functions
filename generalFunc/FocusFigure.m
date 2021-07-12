@@ -6,7 +6,7 @@ if(length(f) == 1 )
         flag = true;
     elseif(ishandle(f))
         if(~isvalid(f))
-            figure();
+            f = figure();
         end
         flag = true;
     end
