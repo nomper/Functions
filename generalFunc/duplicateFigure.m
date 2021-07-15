@@ -1,8 +1,13 @@
-function duplicateFigure(f)
-if(~exist("f","var"))
-    f = gcf;
+function fnew = duplicateFigure(fsource, fnew)
+if(~exist("fsource","var"))
+    fsource = gcf;
 end
-fnew = figure();
-copyobj(f.CurrentAxes, fnew);
-fnew.Position = f.Position + [30 -30 0 0];
+
+if(~exist("fnew","var"))
+    fnew = figure();
+else
+    fnew = figure(fnew);
+end
+copyobj(fsource.CurrentAxes, fnew);
+fnew.Position = fsource.Position + [30 -30 0 0];
 end
