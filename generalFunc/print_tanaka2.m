@@ -1,4 +1,7 @@
 function print_tanaka2(figurehandle, mFilename, bgs, opti)
+if(isnumeric(figurehandle))
+    figurehandle = figure(figurehandle);
+end
 filename = sprintf("%s_fig%02d",mFilename, figurehandle.Number);
 if(~exist("bgs","var"))
     bgs = false;

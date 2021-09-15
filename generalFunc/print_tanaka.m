@@ -21,7 +21,7 @@ if(bgs)
     F(3) = parfeval(p, @savefig, 0, figurehandle, strcat(filename, '.fig'), 'compact');
     if(opti)
         wait(F);
-        comm = sprintf("!optipng.exe %s -preserve", strcat(filename,'.png'));
+        comm = sprintf("!oxipng.exe %s -p -o max", strcat(filename,'.png'));
         parfeval(p, @eval, 0, comm);
     end
 else
@@ -30,7 +30,7 @@ else
     savefig(figurehandle, strcat(filename, '.fig'), 'compact');
 end
 if(opti)
-    eval(sprintf("!optipng.exe %s -preserve", strcat(filename,'.png')))
+    eval(sprintf("!oxipng.exe %s -p -o max", strcat(filename,'.png')))
 end
 
 end
