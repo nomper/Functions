@@ -1,8 +1,13 @@
-function f = FigSeikei(f)
+function [f, ax] = FigSeikei(f)
 if(~exist("f","var"))
     f = gcf;
 end
-coeff = (ispc + 1.5 * ismac);
+if(isnumeric(f))
+    f = figure(f);
+end
+ax = f.CurrentAxes;
+% coeff = (ispc + 1.5 * ismac);
+coeff = 1;
 f.Position(3) = 640 * coeff;
 f.Position(4) = 480 * coeff;
 for a = f.Children'
