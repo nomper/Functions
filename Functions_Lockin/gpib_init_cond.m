@@ -32,10 +32,14 @@ end
 figure(1);
 subplot(2,2,1);title("X");
 plot(Time,Out_X*1000);
+ylabel("X");
 subplot(2,2,2);title("Y");
 plot(Time,Out_Y*1000);
+ylabel("Y");
 subplot(2,2,3);title("R");
 plot(Time,Out_R*1000);
+ylabel("R")
 subplot(2,2,4);title("\theta");
 plot(Time,Out_P);
+ylabel("theta")
 fclose(obj);

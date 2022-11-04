@@ -9,7 +9,7 @@ for a=1:length(temp)
 end
 
 %% start / Serial Initializing
-s = serial('COM4');
+s = serial('COM3');
 set(s,'BaudRate',38400);
 set(s,'DataBit',8);
 set(s,'StopBits',1);
