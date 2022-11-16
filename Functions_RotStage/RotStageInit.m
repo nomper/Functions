@@ -1,15 +1,15 @@
-function sRot = RotStageInit(COMPortNum)
+function sRot = RotStageInit()
 %RotStageInit To Initialize Rotstage
 %
 %% Instrument Connection
 
 % Find a serial port object.
-sRot = instrfind('Type', 'serial', 'Port', 'COM6', 'Tag', '');
+sRot = instrfind('Type', 'serial', 'Port', 'COM5', 'Tag', '');
 
 % Create the serial port object if it does not exist
 % otherwise use the object that was found.
 if isempty(sRot)
-    sRot = serial('COM6');
+    sRot = serial('COM5');
 else
     fclose(sRot);
     sRot = sRot(1);
@@ -20,7 +20,10 @@ fopen(sRot);
 
 % Configure instrument object, obj1.
 set(sRot, 'Terminator', {'CR/LF','CR/LF'});
-set(sRot, 'BaudRate', 38400);
+set(sRot, 'BaudRate', 9600);
+
+return;
+
 data1 = query(sRot, 'H:1');
 pause(0.1);
 data2 = query(sRot, 'D:1S500F20000R5000')
