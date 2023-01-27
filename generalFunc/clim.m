@@ -3,6 +3,7 @@ g = gcf;
 ax = g.CurrentAxes;
 c = [];
 if(~exist("m","var"))
+        c = ax.CLim;
     return;
 elseif(~exist("M","var"))
     if(length(m)==2)
