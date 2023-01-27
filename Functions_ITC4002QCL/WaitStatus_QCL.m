@@ -1,4 +1,4 @@
-function [T C] = WaitStatus_QCL(obj,TECT,curr)
+function [T, C] = WaitStatus_QCL(obj,TECT,curr)
 %ReadV2100 keithly 2100 6 1/2から温度を読みます
 %   詳細説明をここに記述
 IsLDon = str2double(writeread(obj,"outp1?"));
@@ -9,6 +9,7 @@ if((IsLDon + IsTECon) <2)
 end
 t_tar = round(TECT,1);
 c_tar = round(curr,2);
+fprintf(".\n");
 while(true)
     flag = 0;
     for n = 1:10
@@ -16,6 +17,8 @@ while(true)
         C(n) = ReadC_QCL(obj,2);
         pause(0.1);
     end
+%     max(T)
+%     max(C)
     if(max(T) == t_tar)
         if(min(T) == t_tar)
             flag = flag + 1;
@@ -26,8 +29,11 @@ while(true)
             flag = flag + 1;
         end
     end
+%     flag
     if(flag == 2)
         break;
     end
+    fprintf(".");
 end
+fprintf(".\n");
 
