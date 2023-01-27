@@ -1,4 +1,4 @@
-function s = XYZ_Stage_init()
+function s = XYZ_Stage_init(ResetFlag)
 
 %% Pre- Serial Initializing 
 serial('COM30');
@@ -9,22 +9,31 @@ for a=1:length(temp)
 end
 
 %% start / Serial Initializing
-s = serial('COM3');
-set(s,'BaudRate',38400);
-set(s,'DataBit',8);
-set(s,'StopBits',1);
-set(s,'Terminator','CR/LF');
+s = serialport('COM3',38400,'StopBits',1,Timeout=1);
+configureTerminator(s,'CR/LF');
+
+% set(s,'BaudRate',38400);
+% set(s,'DataBit',8);
+% set(s,'StopBits',1);
+% set(s,'Terminator','CR/LF');
 fopen(s);
 
 SerialSend(s,'?')
-SerialSend(s,'RESTA:');
-pause(10);
+if(exist("ResetFlag","var"))
+    if(ResetFlag)
+        SerialSend(s,'RESTA:');
+        pause(10);
+    end
+end
 
 SerialSend(s,'X:1');
 SerialSend(s,'X:R');
-SerialSend(s,'P:04A36B36C31')
-SerialSend(s,'P:53,0,0,0,0')
-SerialSend(s,'F:')
+SerialSend(s,'P:04A36B36C31');
+SerialSend(s,'P:53,0,0,0,0');
+SerialSend(s,'F:');
+SerialSend(s,"R:A0");
+SerialSend(s,"R:B0");
+SerialSend(s,"R:C0");
 pause(0.5);
 
 SerialSend(s,'S:A07B07C06');
@@ -40,6 +49,6 @@ SerialSend(s,'D:C1000P4000P1000')
 SerialSend(s,'F:')
 % SerialSend(s,'H:ABC');
 
-flushinput(s);
+flush(s);
 
 end 
