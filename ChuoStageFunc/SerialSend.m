@@ -5,14 +5,18 @@ flushinput(s);
 if(s.Status == "closed")
     fopen(s);
 end
-fprintf(s, command);
-response = '';
-pause(5/100);
-while(s.BytesAvailable)
-    response = [response fscanf(s)]; %#ok<AGROW>
-    if(contains(response, '\r'))
-        break;
-    end
-    pause(5/100);
-end
+
+writeline(s,command);
+response = readline(s);
+
+% fprintf(s, command);
+% response = '';
+% pause(1/100);
+% while(s.BytesAvailable)
+%     response = [response fscanf(s)]; %#ok<AGROW>
+%     if(contains(response, '\r'))
+%         break;
+%     end
+%     pause(1/100);
+% end
 end
